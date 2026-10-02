@@ -32,7 +32,7 @@ from livekit.plugins import silma
 session = AgentSession(
     tts=silma.TTS(
         model="silma-tts-v2-msa",
-        voice="sarah",
+        voice="omar",
     ),
     # ... stt, llm, vad
 )
@@ -42,8 +42,8 @@ session = AgentSession(
 
 | Model | Language | Voices |
 | --- | --- | --- |
-| `silma-tts-v2-english` | English | `james`, `emma` |
-| `silma-tts-v2-msa` | Modern Standard Arabic | `sarah`, `salma`, `salwa`, `saja`, `sultan`, `salman`, `sulaiman`, `salim` |
+| `silma-tts-v2-english` | English | `james`, `emma`, `isabella`, `oliver`  |
+| `silma-tts-v2-msa` | Modern Standard Arabic | `abdulaziz`, `fahd`, `layla`, `maryam`, `nouf`, `noura`, `omar`, `reema`, `yusuf`, `khalid` |
 | `silma-tts-v2-ksa` | Arabic, Saudi (Najdi) dialect | same as MSA |
 
 ### Cloned voices
@@ -54,7 +54,7 @@ its id along with your user id:
 ```python
 silma.TTS(
     model="silma-tts-v2-ksa",
-    voice="sarah",
+    voice="omar",
     user_id="...",
     custom_audio_id="voice_1769817467123",
 )
@@ -100,13 +100,6 @@ pip install -e ".[dev]"
 pytest
 ```
 
-### Releasing
-
-1. Bump `__version__` in `livekit/plugins/silma/version.py` and add a
-   `CHANGELOG.md` entry.
-2. Commit, then tag and push: `git tag v0.1.0 && git push origin v0.1.0`.
-3. The `Publish` workflow builds the package and uploads it to PyPI via
-   trusted publishing.
 
 ## License
 
