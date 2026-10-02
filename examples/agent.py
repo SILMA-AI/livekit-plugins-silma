@@ -42,15 +42,12 @@ if LANGUAGE.startswith("en"):
     INSTRUCTIONS = "You are a friendly voice assistant. Speak English."
     GREETING = "Hello! I'm your voice assistant. You can reach us on <STAG_PN>92005455</STAG_PN>."
 else:
-    MODEL, VOICE = "silma-tts-v2-msa", "sarah"
+    MODEL, VOICE = "silma-tts-v2-msa", "maryam"
     INSTRUCTIONS = "You are a friendly voice assistant speaking Modern Standard Arabic."
     GREETING = "مرحبا بك! أنا مساعدك الصوتي. للتواصل معنا اتصل على <STAG_PN>92005455</STAG_PN>."
 
 INSTRUCTIONS += (
     " Keep replies to one or two short sentences, because they are spoken aloud."
-    " When you mention a phone number, wrap it as <STAG_PN>...</STAG_PN>;"
-    " wrap an email as <STAG_EMAIL>...</STAG_EMAIL> and a link as"
-    " <STAG_LINK>...</STAG_LINK> so it is pronounced correctly."
 )
 
 server = AgentServer()
@@ -61,7 +58,7 @@ async def entrypoint(ctx: JobContext) -> None:
     session = AgentSession(
         # Arabic requires nova-3, and `filler_words` is English-only at Deepgram.
         stt=deepgram.STT(model="nova-3", language=LANGUAGE, filler_words=LANGUAGE.startswith("en")),
-        llm=openai.LLM(model="gpt-4o-mini"),
+        llm=openai.LLM(model="gpt-6-luna"),
         tts=silma.TTS(model=MODEL, voice=VOICE),
         vad=silero.VAD.load(),
     )
