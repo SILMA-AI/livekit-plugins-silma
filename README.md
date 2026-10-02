@@ -93,6 +93,30 @@ SILMA returns a 24 kHz mono float32 waveform; the plugin converts it to 16-bit
 PCM for the agent pipeline.
 
 
+
+## Running a Live Agent Example
+
+```bash
+python3 -m venv silma-agent && source silma-agent/bin/activate
+```
+```bash
+pip install livekit-plugins-silma "livekit-agents[silero,deepgram,openai]>=1.8.0" python-dotenv
+```
+```bash
+curl -O https://raw.githubusercontent.com/SILMA-AI/livekit-plugins-silma/main/examples/agent.py
+```
+
+```bash
+export SILMA_API_KEY="..."
+export DEEPGRAM_API_KEY="..."
+export OPENAI_API_KEY="..."
+```
+
+Talk to it in your terminal with your own microphone:
+```bash
+python agent.py console
+```
+
 ## Development
 
 ```bash
